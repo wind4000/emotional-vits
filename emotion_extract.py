@@ -129,9 +129,10 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     for filelist in args.filelists:
-        print(filelist,"----start emotion extract-------")
+        print(f"----start emotion extract: {filelist}-------")
         with open(filelist) as f:
-            for idx, line in tqdm(enumerate(f.readlines())):
+            lines = f.readlines()
+            for idx, line in tqdm(enumerate(lines), total=len(lines)):
                 path = line.strip().split("|")[0]
                 preprocess_one(path)
-                print(idx, path)
+                #print(idx, path)
