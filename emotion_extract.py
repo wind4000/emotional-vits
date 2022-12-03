@@ -8,7 +8,7 @@ from transformers.models.wav2vec2.modeling_wav2vec2 import (
 import os
 import librosa
 import numpy as np
-import tqdm
+from tqdm import tqdm
 
 
 class RegressionHead(nn.Module):
