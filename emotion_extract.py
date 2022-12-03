@@ -8,6 +8,7 @@ from transformers.models.wav2vec2.modeling_wav2vec2 import (
 import os
 import librosa
 import numpy as np
+import tqdm
 
 
 class RegressionHead(nn.Module):
@@ -130,7 +131,7 @@ if __name__ == '__main__':
     for filelist in args.filelists:
         print(filelist,"----start emotion extract-------")
         with open(filelist) as f:
-            for idx, line in enumerate(f.readlines()):
+            for idx, line in tqdm(enumerate(f.readlines())):
                 path = line.strip().split("|")[0]
                 preprocess_one(path)
                 print(idx, path)
